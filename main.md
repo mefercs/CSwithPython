@@ -79,13 +79,26 @@ import socket
 
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mysock.connect(('data.pr4e.org', 80))
-cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()
-mysock.send(cmd)
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode() # Cast the string(unicode) to bytes(UTF-8 bytes)
+mysock.send(cmd) # We send bytes to the external socket (host and port)
 
 while True:
-    data = mysock.recv(512)
+    data = mysock.recv(512) # Recieving UTF-8 bytes
     if len(data) < 1:
         break
-    print(data.decode(),end='')
-mysock.close()
+    print(data.decode(),end='') # Cast the UTF-8 Bytes to unicode 
+mysock.close() # Finally we cut the connection to the external server but we still having the socket
 ```
+
+# URLLIB
+
+Url handlers the sockets for us and makes web pages look like a file.
+```py
+import urllib.request, urllib.parse, urllib.error
+fhand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+for line in fhand:
+    print(line.decode().strip())
+```
+We could also receive html, but to parse that html we need to use another thing.
+
+
