@@ -68,7 +68,6 @@ We can create an http request using the next command line
 ```
 $ telnet www.dr-chuck.com 80
 GET http://www.dr-chuck.com/page1.htm HTTP/1.0
-
 ```
 Which specifies a protocol(the way to talk to the server which is a login protocol) to the host(www.dr-chuck.com) at the port(the application running at) 80.
 So the recap, we are saying that we want to talk with the telnet application protocol with the application running on the port 80 of the host www.dr-chuck.com,
