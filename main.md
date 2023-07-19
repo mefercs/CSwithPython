@@ -101,4 +101,25 @@ for line in fhand:
 ```
 We could also receive html, but to parse that html we need to use another thing.
 
+# SQLite
+
+Using DBBRosew for Sqlite, we create a new DB
+- [Dr-Chuck handout](https://www.py4e.com/lectures3/Pythonlearn-15-Database-Handout.txt)
+- INSERT:
+  ```sql
+   INSERT INTO Users(name,email) VALUES (Miguel, example@gmail.com) 
+  ```
+### Multiple tables
+
+- Integer reference Pattern: WE use integers to refrecene rows in another table
+  - Primary key: Generally an integer auto-increment field
+  - logical key: What the outised world uses for lookup
+  - Foreing key: Generally an integer key pointing to a row in another table
+  ```
+  Album
+  id // Primay key
+  title //logical key
+  artist_id //foreing key
+  ```
+
 
